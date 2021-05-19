@@ -1,34 +1,50 @@
 import React, { Component } from "react";
-import Table from "./components/Table";
+import Header from "./components/Header"
 import TableRow from "./components/TableRow";
 import employees from "./employees.json";
 
 class App extends Component {
-//   // Setting this.state.friends to the friends json array
+  //   // Setting this.state.friends to the friends json array
   state = {
     employees
   };
 
-//   removeFriend = id => {
-//     // Filter this.state.friends for friends with an id not equal to the id being removed
-//     const friends = this.state.friends.filter(friend => friend.id !== id);
-//     // Set this.state.friends equal to the new friends array
-//     this.setState({ friends });
-//   };
+    // handleIncrement = () => {
+    //   // Filter this.state.friends for friends with an id not equal to the id being removed
+    //   this.state.employees.sort() 
+        
+    
+    // };
+    
   render() {
-    return ( 
+    return (
       <div className="container-fluid">
-        <Table/>
-        {this.state.employees.map(employee => (
-          <TableRow
-            id={employee.id}
-            key={employee.id}
-            name={employee.name}
-            phone={employee.phone}
-            email={employee.email}
-            dob={employee.dob}
-          />
-        ))}
+        <Header/>
+        <table className="table table-dark container-fluid">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Photo</th>
+              <th scope="col" onClick={this.handleIncrement}>Name</th>
+              <th scope="col">Phone</th>
+              <th scope="col">Email</th>
+              <th scope="col">DOB</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.employees.map(employee => (
+                <TableRow
+                  id={employee.id}
+                  key={employee.id}
+                  image={employee.image}
+                  name={employee.name}
+                  phone={employee.phone}
+                  email={employee.email}
+                  dob={employee.dob}
+                />
+              ))}
+              </tbody>
+          </table>
       </div>
     );
   }

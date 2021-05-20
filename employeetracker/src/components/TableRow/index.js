@@ -10,7 +10,6 @@ function TableRow (props) {
           <td>{props.name}</td>
           <td>{props.phone}</td>
           <td>{props.email}</td>
-          <td>{props.dob}</td>
         </tr>
 
     )
